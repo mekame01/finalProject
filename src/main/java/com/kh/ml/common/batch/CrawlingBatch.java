@@ -28,7 +28,7 @@ public class CrawlingBatch {
 	// 3 *  * 5 * *
 	// 0 0 1 1 3,6,9,12 *
 	
-	@Scheduled(cron = "5,35 6 6 31 12 5")
+//	@Scheduled(cron = "5,35 6 6 31 12 5")
 	public void baseBallCrawling() throws MalformedURLException, IOException {
 		Document doc = Jsoup.parse(new URL("https://www.koreabaseball.com/TeamRank/TeamRank.aspx"), 10000);
 		Elements eles = doc.select("#cphContents_cphContents_cphContents_udpRecord > table > tbody > tr");
