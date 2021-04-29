@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>New Age - Start Bootstrap Theme</title>
+  <title>당신이 원하는 !t Tem </title>
 
   <!-- Bootstrap core CSS -->
   <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +25,14 @@
 
   <!-- Custom styles for this template -->
   <link href="/resources/css/new-age.min.css" rel="stylesheet">
+  <style type="text/css">
+  	.mb-20 {
+  		font-size: 1em;
+  	}
+  
+  
+  
+  </style>
 
 </head>
 
@@ -33,7 +41,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="/resources/img/logo.png" style="width:55%;"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -41,13 +49,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#download">Download</a>
+            <a class="nav-link js-scroll-trigger" href="#download">체험하기</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#features">Features</a>
+            <a class="nav-link js-scroll-trigger" href="#features">이용안내</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="#contact">고객센터</a>
           </li>
         </ul>
       </div>
@@ -59,17 +67,20 @@
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
-            <h1 class="mb-5">New Age is an app landing page that will help you beautifully showcase your new mobile app, or anything else!</h1>
-            <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a>
+            <h1 class="mb-5"><h2>연예인이 입었던 그 옷?</h2> <h1>잇템에게 물어봐!</h1><br><br>
+            </h1>
+            <h3 class="mb-20">사진을 넣어 클릭만 하면 무료로 검색이 가능합니다. 비슷한 아이템들로 쇼핑검색과 가상의 모델로 피팅까지 경험해보세요.</h3>
+            <br><br><br><br>
+            <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">무료체험하기</a>
           </div>
         </div>
         <div class="col-lg-5 my-auto">
           <div class="device-container">
-            <div class="device-mockup iphone6_plus portrait white">
+            <div class="device-mockup iphone6_plus gold portrait white">
               <div class="device">
                 <div class="screen">
                   <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                  <img src="/resources/img/demo-screen-1.jpg" class="img-fluid" alt="">
+                  <img src="/resources/img/demo-screen-4.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="button">
                   <!-- You can hook the "home button" to some JavaScript events or just remove it -->
@@ -86,11 +97,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 mx-auto">
-          <h2 class="section-heading">Discover what all the buzz is about!</h2>
-          <p>Our app is available on any mobile device! Download now to get started!</p>
+          <h2 class="section-heading">사진 한 장으로 쇼핑하자!</h2>
+          <p>!</p>
           <div class="badges">
-            <a class="badge-link" href="#"><img src="/resources/img/google-play-badge.svg" alt=""></a>
-            <a class="badge-link" href="#"><img src="/resources/img/app-store-badge.svg" alt=""></a>
+            <!-- 구글플레이 있던곳 -->
           </div>
         </div>
       </div>
@@ -106,19 +116,7 @@
       </div>
       <div class="row">
         <div class="col-lg-4 my-auto">
-          <div class="device-container">
-            <div class="device-mockup iphone6_plus portrait white">
-              <div class="device">
-                <div class="screen">
-                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                  <img src="/resources/img/demo-screen-1.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="button">
-                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- 피팅 사진 넣을것 -->
         </div>
         <div class="col-lg-8 my-auto">
           <div class="container-fluid">
@@ -163,8 +161,8 @@
   <section class="cta">
     <div class="cta-content">
       <div class="container">
-        <h2>Stop waiting.<br>Start building.</h2>
-        <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
+        <h2>지금 <br>체험하세요.</h2>
+        <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">체험하기</a>
       </div>
     </div>
     <div class="overlay"></div>
