@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>당신이 원하는 !t Tem</title>
 </head>
 <body>
 	<script type="text/javascript">

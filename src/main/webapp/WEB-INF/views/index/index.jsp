@@ -8,7 +8,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>당신이 원하는 !t Tem </title>
+  <script>
+    document.title = "당신이 원하는 !t Tem" ;
+  </script>
 
   <!-- Bootstrap core CSS -->
   <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -67,11 +69,11 @@
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
-            <h1 class="mb-5"><h2>연예인이 입었던 그 옷?</h2> <h1>잇템에게 물어봐!</h1><br><br>
+            <h1 class="mb-5"><h2>연예인이 입었던 그 옷?</h2> <h1>'잇템'에게 물어봐!</h1><br><br>
             </h1>
-            <h3 class="mb-20">사진을 넣어 클릭만 하면 무료로 검색이 가능합니다. 비슷한 아이템들로 쇼핑검색과 가상의 모델로 피팅까지 경험해보세요.</h3>
-            <br><br><br><br>
-            <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">무료체험하기</a>
+            <h3 class="mb-20">사진을 넣어 클릭만 하면 무료검색이 가능합니다. 비슷한 아이템들로 네이버 쇼핑검색과 가상의 모델로 피팅까지 경험해보세요.</h3>
+            <br><br><br><br><br>
+            <a href="#" class="btn btn-outline btn-xl js-scroll-trigger">무료회원가입</a>
           </div>
         </div>
         <div class="col-lg-5 my-auto">
@@ -94,65 +96,62 @@
   </header>
 
   <section class="download bg-primary text-center" id="download">
-    <div class="container">
+    <div class="container" style="height:400px;">
       <div class="row">
         <div class="col-md-8 mx-auto">
-          <h2 class="section-heading">사진 한 장으로 쇼핑하자!</h2>
-          <p>!</p>
+          <h2 class="section-heading">사진 한 장으로 <br>쇼핑까지 누려라!</h2>
+          <p>연예인 공항패션.. 저거 무슨 옷일까? 네이버쇼핑에서 가상피팅까지 무료로 체험 해보세요.</p>
           <div class="badges">
-            <!-- 구글플레이 있던곳 -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="features" id="features">
-    <div class="container">
-      <div class="section-heading text-center">
-        <h2>Unlimited Features, Unlimited Fun</h2>
-        <p class="text-muted">Check out what you can do with this app theme!</p>
-        <hr>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 my-auto">
-          <!-- 피팅 사진 넣을것 -->
-        </div>
-        <div class="col-lg-8 my-auto">
-          <div class="container-fluid">
+            <section class="features" id="features" style="padding-top:0;">
             <div class="row">
+            <div class="col-lg-8 my-auto">
+          <div class="container-fluid">
+            <div class="row" style="align-content: space-between; display: flex; flex-wrap: unset; padding-right:100px;">
               <div class="col-lg-6">
                 <div class="feature-item">
-                  <i class="icon-screen-smartphone text-primary"></i>
-                  <h3>Device Mockups</h3>
-                  <p class="text-muted">Ready to use HTML/CSS device mockups, no Photoshop required!</p>
+                  <i class="icon-people text-primary"></i>
+                  <h3>Free Sign In</h3>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="feature-item">
                   <i class="icon-camera text-primary"></i>
                   <h3>Flexible Use</h3>
-                  <p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>
                 </div>
               </div>
-            </div>
-            <div class="row">
               <div class="col-lg-6">
                 <div class="feature-item">
                   <i class="icon-present text-primary"></i>
                   <h3>Free to Use</h3>
-                  <p class="text-muted">As always, this theme is free to download and use for any purpose!</p>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="feature-item">
-                  <i class="icon-lock-open text-primary"></i>
-                  <h3>Open Source</h3>
-                  <p class="text-muted">Since this theme is MIT licensed, you can use it commercially!</p>
+                  <i class="icon-basket-loaded text-primary"></i>
+                  <h3>Shopping Link</h3>
                 </div>
+              </div>
               </div>
             </div>
           </div>
+        </div>
+         </section>
+         	</div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h2>Unlimited Features, Unlimited Fun</h2>
+        <p class="text-muted">Check out what you want to get!</p>
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 my-auto">
+        <img class="gif-video" src="/resources/img/how_to_use.gif" loof="infinite" style="margin-left:160px;" />
         </div>
       </div>
     </div>
@@ -162,7 +161,7 @@
     <div class="cta-content">
       <div class="container">
         <h2>지금 <br>체험하세요.</h2>
-        <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">체험하기</a>
+        <a href="#" class="btn btn-outline btn-xl js-scroll-trigger">무료회원가입</a>
       </div>
     </div>
     <div class="overlay"></div>
@@ -195,7 +194,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; Your Website 2020. All Rights Reserved.</p>
+      <p>&copy; Your Website 2021. All Rights Reserved.</p>
       <ul class="list-inline">
         <li class="list-inline-item">
           <a href="#">Privacy</a>
@@ -219,6 +218,9 @@
 
   <!-- Custom scripts for this template -->
   <script src="/resources/js/new-age.min.js"></script>
+  <script>
+    document.title = "당신이 원하는 !t Tem" ;
+  </script>
 
 </body>
 
