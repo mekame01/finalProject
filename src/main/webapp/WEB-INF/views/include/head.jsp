@@ -14,9 +14,9 @@
 
 <c:set var="context" value="${pageContext.request.contextPath}"/>
 <style type="text/css">
-	a{
-		text-decoration: none;	
-		cursor:pointer;
-	}
+   a{
+      text-decoration: none;   
+      cursor:pointer;
+   }
 </style>
 </head>

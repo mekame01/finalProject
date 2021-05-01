@@ -59,6 +59,12 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">고객센터</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">로그인</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="member/join">회원가입</a>
+          </li>
         </ul>
       </div>
     </div>
