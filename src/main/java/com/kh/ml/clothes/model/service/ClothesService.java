@@ -11,5 +11,6 @@ public interface ClothesService {
 	
 	List<Clothes> selectClothes();
 	FileVo selectClothesFile(int fIdx);
-	void insertClothes(String division, List<MultipartFile> files);
+	void updateClothes(String division, List<MultipartFile> files, List<Integer> delFiles);
+	List<Clothes> selectClohtesByClothesCode(String clothesCode);
 }

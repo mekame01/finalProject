@@ -49,5 +49,10 @@ public class FileUtil {
 		
 		multipartFile.transferTo(dest);
 	}
+	
+	public void deleteFile(String fullPath, String fileName) {
+		File file = new File(fullPath + fileName);
+		file.delete();
+	}
 
 }

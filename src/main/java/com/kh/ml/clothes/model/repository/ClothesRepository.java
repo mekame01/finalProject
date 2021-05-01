@@ -2,6 +2,7 @@ package com.kh.ml.clothes.model.repository;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -12,7 +13,7 @@ import com.kh.ml.common.util.file.FileVo;
 @Mapper
 public interface ClothesRepository {
 
-	@Select("select * from tb_clothes where is_del = 0")
+	@Select("select * from tb_clothes")
 	List<Clothes> selectClothes();
 	
 	@Select("select * from tb_file where f_idx=#{fIdx}")
@@ -25,4 +26,16 @@ public interface ClothesRepository {
 	@Insert("insert into tb_file(f_idx, type_idx, origin_file_name, rename_file_name, save_path)"
 			+ "values(sc_file_idx.nextval, ' ', #{originFileName}, #{renameFileName}, #{savePath})")
 	int insertFile(FileVo fileVo);
+	
+	@Select("select * from tb_clothes where clothes_idx = #{clothesIdx}")
+	Clothes selectOneClothes(int clothesIdx);
+	
+	@Delete("delete from tb_clothes where clothes_idx = #{clothesIdx}")
+	int deleteClohtes(int clothesIdx);
+	
+	@Select("select * from tb_file where f_idx = #{fIdx}")
+	FileVo selectOneFile(int fIdx);
+	
+	@Select("select * from tb_clothes where clothes_code = #{clothesCode}")
+	List<Clothes> selectClohtesByClothesCode(String clothesCode);
 }

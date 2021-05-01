@@ -12,10 +12,8 @@ body {
 	padding: 0;
 }
 
-#field {
-	background: url(https://raw.githubusercontent.com/sannyaliev9/dressupgames/master/field.png);
-	width: 400px;
-	height: 400px;
+#model {
+	background: 
 	float: left;
 	background-repeat: none;
 	background-position: center;
@@ -34,220 +32,116 @@ body {
 }
 
 #shoes{
+
 }
 
-.hero {
-	background: url(https://raw.githubusercontent.com/sannyaliev9/dressupgames/master/heroes.png);
-	width: 250px;
-	height: 305px;
+#clothes{
 	float: left;
 }
 
-
-#hero1 {
-	background-position: 0 0;
-}
-
-
-#hero2 {
-	background-position: -250px 0;
-}
-
-
-#hero3 {
-	background-position: -500px 0;
-}
-
-
-#hero4 {
-	background-position: -750px 0px;
-}
-
-
-#hero5 {
-	background-position: -1000px 0px;
-}
-
-
-#hero6 {
-	background-position: -1250px 0px;
-}
-
-
-#hero7 {
-	background-position: -1500px 0px;
-}
-
-
-#hero8 {
-	background-position: -1750px 0px;
-}
-
-
-#hero9 {
-	background-position: 0px -305px;
-}
-
-
-#hero10 {
-	background-position: -250px -305px;
-}
-#hero11 {
-	background-position: -500px -305px;
-}
-#hero12 {
-	background-position: -750px -305px;
-}
-#hero13 {
-	background-position: -1000px -305px;
-}
-#hero14 {
-	background-position: -1250px -305px;
-}
-#hero15 {
-	background-position: -1500px -305px;
-}
-#hero16 {
-	background-position: -1750px -305px;
-}
-#hero17 {
-	background-position: 0px -610px;
-}
-#hero18 {
-	background-position: -250px -610px;
-}
-#hero19 {
-	background-position: -500px -610px;
-}
-#hero20 {
-	background-position: -750px -610px;
-}
-#hero21 {
-	background-position: -1000px -610px;
-}
-#hero22 {
-	background-position: -1250px -610px;
-}
-#hero23 {
-	background-position: -1500px -610px;
-}
-#hero24 {
-	background-position: -1750px -610px;
-}
-#hero25 {
-	background-position: 0px -915px;
-}
-#hero26 {
-	background-position: -250px -915px;
-}
-#hero27 {
-	background-position: -500px -915px;
-}
-#hero28 {
-	background-position: -750px -915px;
-}
-#hero29 {
-	background-position: -1000px -915px;
-}
-#hero30 {
-	background-position: -1250px -915px;
-}
-#hero31 {
-	background-position: -1500px -915px;
-}
-#hero32 {
-	background-position: -1750px -915px;
-}
-
-.wearable {
+.draggable {
 	cursor: pointer;
 }
 </style>
 </head>
 <body>
-<div id="field">
-	<div id="top"></div>
-	<div id="bottom"></div>
-	<div id="shoes"></div>
-</div>
-<div class="hero wearable bottom" id="hero1"></div>
-<div class="hero wearable bottom" id="hero2"></div>
-<div class="hero wearable" id="hero3"></div>
-<div class="hero wearable bottom" id="hero4"></div>
-<div class="hero wearable bottom" id="hero5"></div>
-<div class="hero wearable" id="hero6"></div>
-<div class="hero wearable bottom" id="hero7"></div>
+<div class="content">
+<form action="/avatar/modify" method="post" style="border: dotted; float: left;">
+	<div>
+		<img alt="image" src="/upload/2021/5/1/model.png">
+	</div>
+</form>
+<c:forEach var="top" items="${requestScope.tops}" varStatus="imageStatus">
+	<img class="clothes draggable" src="/upload/${top.savePath}${top.renameFileName}" alt="Image">
+</c:forEach>
+<br>
+<c:forEach var="bottom" items="${requestScope.bottoms}" varStatus="imageStatus">
+	<img class="clothes draggable" src="/upload/${bottom.savePath}${bottom.renameFileName}" alt="Image">
+</c:forEach>
+<br>
+<c:forEach var="shoe" items="${requestScope.shoes}" varStatus="imageStatus">
+	<img class="clothes draggable" src="/upload/${shoe.savePath}${shoe.renameFileName}" alt="Image">
+</c:forEach>
 
-<div class="hero wearable bottom" id="hero8"></div>
-<div class="hero wearable bottom" id="hero9"></div>
-<div class="hero wearable" id="hero10"></div>
-<div class="hero wearable bottom" id="hero11"></div>
-<div class="hero wearable bottom" id="hero12"></div>
-<div class="hero wearable bottom" id="hero13"></div>
-<div class="hero wearable" id="hero14"></div>
-<div class="hero wearable bottom" id="hero15"></div>
-<div class="hero wearable bottom" id="hero16"></div>
-<div class="hero wearable bottom" id="hero17"></div>
-<div class="hero wearable" id="hero18"></div>
-<div class="hero wearable bottom" id="hero19"></div>
-<div class="hero wearable" id="hero20"></div>
-<div class="hero wearable bottom" id="hero21"></div>
-<div class="hero wearable bottom" id="hero22"></div>
-<div class="hero wearable bottom" id="hero23"></div>
-<div class="hero wearable bottom" id="hero24"></div>
-<div class="hero wearable bottom" id="hero25"></div>
-<div class="hero wearable bottom" id="hero26"></div>
-<div class="hero wearable bottom" id="hero27"></div>
-<div class="hero wearable bottom" id="hero28"></div>
-<div class="hero wearable bottom" id="hero29"></div>
-<div class="hero wearable top" id="hero30"></div>
-<div class="hero wearable top" id="hero31"></div>
-<div class="hero wearable" id="hero32"></div>
-<img src="https://raw.githubusercontent.com/sannyaliev9/dressupgames/master/ball.png" class="wearable">
-<div style="clear:both"></div>
+</div>
 <script type="text/javascript">
 document.onmousedown = function(e) {
 
-	var clickElement = e.target;
-	var wears = ['top', 'bottom', 'shoes'];
-	let top = document.querySelector('#top');
-	let bottom = document.querySelector('#bottom');
-	let shoes = document.querySelector('#shoes');
+	var dragElement = e.target;
 
-	if (!clickElement.classList.contains('wearable')) return;
+	if (!dragElement.classList.contains('draggable')) return;
 
-	clickElement.onmouseup = function() {
-		finishClick();
+	var coords, shiftX, shiftY;
+
+	startDrag(e.clientX, e.clientY);
+
+	document.onmousemove = function(e) {
+		moveAt(e.clientX, e.clientY);
+	};
+
+	dragElement.onmouseup = function() {
+		finishDrag();
+	};
+
+	function startDrag(clientX, clientY) {
+
+		shiftX = clientX - dragElement.getBoundingClientRect().left;
+		shiftY = clientY - dragElement.getBoundingClientRect().top;
+
+		dragElement.style.position = 'fixed';
+
+		document.body.appendChild(dragElement);
+
+		moveAt(clientX, clientY);
+	};
+
+	function finishDrag() {
+
+		dragElement.style.top = parseInt(dragElement.style.top) + pageYOffset + 'px';
+		dragElement.style.position = 'absolute';
+
+		document.onmousemove = null;
+		dragElement.onmouseup = null;
 	}
 
-	function finishClick() {
-		
-		console.dir(wears.indexOf(clickElement.classList.value.split(' ')[2]));
-		let index = wears.indexOf(clickElement.classList.value.split(' ')[2]);
-		
-		let something = document.querySelector('#'+wears[index]);
-		
-		if(clickElement.classList.contains(wears[index])){
-			
-			console.dir("=========================있나 없나 확인=========================");
-			console.dir(something.firstChild);
-			
-			if(something.firstChild){
-				something.removeChild(something.firstChild);
-			}
-			
-			let cloneNode = clickElement.cloneNode();
-			
-			console.dir("=========================복사 요소 확인=========================");
-			console.dir(cloneNode);
-			
-			something.appendChild(cloneNode); 
+	function moveAt(clientX, clientY) {
+
+		var newX = clientX - shiftX;
+		var newY = clientY - shiftY;
+
+		var newBottom = newY + dragElement.offsetHeight;
+
+		if (newBottom > document.documentElement.clientHeight) {
+	
+			var docBottom = document.documentElement.getBoundingClientRect().bottom;
+	
+			var scrollY = Math.min(docBottom - newBottom, 10);
+	
+			if (scrollY < 0) scrollY = 0;
+	
+			window.scrollBy(0, scrollY);
+	
+			newY = Math.min(newY, document.documentElement.clientHeight - dragElement.offsetHeight);
 		}
 
+		if (newY < 0) {
+
+			var scrollY = Math.min(-newY, 10);
+			
+			if (scrollY < 0) scrollY = 0;
+			
+			window.scrollBy(0, -scrollY);
+			newY = Math.max(newY, 0);
 		
-		//초기화?
-		document.onmousemove = null;
-		clickElement.onmouseup = null;
+		}
+
+		if (newX < 0) newX = 0;
+		if (newX > document.documentElement.clientWidth - dragElement.offsetWidth) {
+			newX = document.documentElement.clientWidth - dragElement.offsetWidth;
+		}
+
+		dragElement.style.left = newX + 'px';
+		dragElement.style.top = newY + 'px';
 	}
 
 	return false;

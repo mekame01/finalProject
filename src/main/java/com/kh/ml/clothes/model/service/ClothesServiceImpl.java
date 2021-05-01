@@ -35,21 +35,27 @@ public class ClothesServiceImpl implements ClothesService{
 
 	@Transactional
 	@Override
-	public void insertClothes(String division, List<MultipartFile> files) {
-		FileUtil fileUtil = new FileUtil();
-		
+	public void updateClothes(String division, List<MultipartFile> files, List<Integer> delFiles) {
 		try {
-			List<FileVo> fileInfo;
-			fileInfo = fileUtil.fileUpload(files);
+			FileUtil fileUtil = new FileUtil();
+			
+			if(delFiles != null) {
+				for (Integer integer : delFiles) {
+					int clothesIdx = integer.intValue();
+					Clothes clothes = clothesRepository.selectOneClothes(clothesIdx);
+					if(clothes != null) {
+						clothesRepository.deleteClohtes(clothesIdx);
+						
+						FileVo fileVo = clothesRepository.selectOneFile(clothes.getClothesFIdx());
+						fileUtil.deleteFile(fileVo.getFullPath(), fileVo.getRenameFileName());
+					}
+				}
+			}
+			
+			List<FileVo> fileInfo = fileUtil.fileUpload(files);
 			for (FileVo fileVo : fileInfo) {
 				
-				System.out.println("=====================fileVo=====================");
-				System.out.println(fileVo);
-				
 				clothesRepository.insertFile(fileVo);
-				
-				System.out.println("=====================fileVo2=====================");
-				System.out.println(fileVo);
 				
 				Clothes clothes = new Clothes();
 				clothes.setClothesCode(division);
@@ -60,6 +66,12 @@ public class ClothesServiceImpl implements ClothesService{
 			e.printStackTrace();
 		}
 			
+	}
+
+
+	@Override
+	public List<Clothes> selectClohtesByClothesCode(String clothesCode) {
+		return clothesRepository.selectClohtesByClothesCode(clothesCode);
 	}
 
 }

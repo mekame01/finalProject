@@ -36,20 +36,17 @@ public class ClothesController {
 			
 			FileVo file = clothesService.selectClothesFile(cloth.getClothesFIdx());
 			files.add(file);
-			System.out.println("file확인");
-			System.out.println(file);
 		}
-		System.out.println("files확인");
-		System.out.println(files);
 		model.addAttribute("categories", categories);
 		model.addAttribute("clothes", clothes);
 		model.addAttribute("files", files);
 	}
 	
 	@PostMapping("clothes")
-	public String modifyClothes(@RequestParam("division") String division
-			,@RequestParam List<MultipartFile> files) {
-		clothesService.insertClothes(division, files);
+	public String modifyClothes(@RequestParam String division
+			, @RequestParam(required = false) List<Integer> delFiles
+			, @RequestParam List<MultipartFile> files) {
+		clothesService.updateClothes(division, files, delFiles);
 		return "redirect:/clothes/clothes";
 	}
 }
