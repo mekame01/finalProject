@@ -68,7 +68,7 @@
 		            <a class="nav-link js-scroll-trigger" href="/member/join">회원가입</a>
 		          </li>
           	</c:when>
-          	<c:otherwise>   	
+          	<c:otherwise>  	
           	</c:otherwise>
           </c:choose>
         </ul>
@@ -91,7 +91,8 @@
 	 			<a href="/member/join" class="btn btn-outline btn-xl js-scroll-trigger">무료회원가입</a>
 	            <a href="/member/login" class="btn btn-outline btn-xl js-scroll-trigger" style="margin-left: 20px"> 로그인 </a>
           	</c:when>
-          	<c:otherwise>   	
+          	<c:otherwise>   
+		        <a class="btn btn-outline btn-xl js-scroll-trigger" href="/predict/tensorflow">옷 찾기</a>
           	</c:otherwise>
           </c:choose>
             
