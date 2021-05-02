@@ -59,12 +59,18 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">고객센터</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">로그인</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="member/join">회원가입</a>
-          </li>
+           <c:choose>
+          	<c:when test="${empty sessionScope.userInfo}">
+          		 <li class="nav-item">
+		            <a class="nav-link js-scroll-trigger" href="/member/login">로그인</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link js-scroll-trigger" href="/member/join">회원가입</a>
+		          </li>
+          	</c:when>
+          	<c:otherwise>   	
+          	</c:otherwise>
+          </c:choose>
         </ul>
       </div>
     </div>
@@ -79,7 +85,17 @@
             </h1>
             <h3 class="mb-20">사진을 넣어 클릭만 하면 무료검색이 가능합니다. 비슷한 아이템들로 네이버 쇼핑검색과 가상의 모델로 피팅까지 경험해보세요.</h3>
             <br><br><br><br><br>
-            <a href="#" class="btn btn-outline btn-xl js-scroll-trigger">무료회원가입</a>
+            
+           <c:choose>
+          	<c:when test="${empty sessionScope.userInfo}">
+	 			<a href="/member/join" class="btn btn-outline btn-xl js-scroll-trigger">무료회원가입</a>
+	            <a href="/member/login" class="btn btn-outline btn-xl js-scroll-trigger" style="margin-left: 20px"> 로그인 </a>
+          	</c:when>
+          	<c:otherwise>   	
+          	</c:otherwise>
+          </c:choose>
+            
+           
           </div>
         </div>
         <div class="col-lg-5 my-auto">
@@ -227,6 +243,8 @@
   <script>
     document.title = "당신이 원하는 !t Tem" ;
   </script>
+
+	
 
 </body>
 
