@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.tab {
+	list-style:none;
+	margin:25% 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.tab li{		/* 탭 왼쪽 정렬 */
+	float:left;
+}
+
+.tab li a{
+	display : inline-block;
+	color: #black;
+	text-algin:center;
+	text-decoratoin:none;
+	padding: 14px 16px;
+	font-size:17px;
+	trainsition:0.3s;
+}
+
+.modelTest{
+	display:none;
+	background-color: white;
+	opacity:80%;
+	padding:6px 12px;
+	color:#0000;
+}
+
+ul.tab li.current{
+	opacity:80%;
+	background-color: white;
+}
+
+.modelTest.current{
+	display:block;
+}
