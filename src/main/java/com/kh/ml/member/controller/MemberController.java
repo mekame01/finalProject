@@ -124,4 +124,10 @@ public class MemberController {
 		return "success";
 	}
 	
+	@GetMapping("logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("userInfo");
+		return "redirect:/index";
+	}
+	
 }

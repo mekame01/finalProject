@@ -69,6 +69,9 @@
 		          </li>
           	</c:when>
           	<c:otherwise>  	
+          		 <li class="nav-item">
+		            <a class="nav-link js-scroll-trigger" href="/member/logout">로그아웃</a>
+		         </li>
           	</c:otherwise>
           </c:choose>
         </ul>
@@ -92,7 +95,7 @@
 	            <a href="/member/login" class="btn btn-outline btn-xl js-scroll-trigger" style="margin-left: 20px"> 로그인 </a>
           	</c:when>
           	<c:otherwise>   
-		        <a class="btn btn-outline btn-xl js-scroll-trigger" href="/predict/tensorflow">옷 찾기</a>
+		        <a class="btn btn-outline btn-xl js-scroll-trigger" href="/ml/mlTest">옷 찾기</a>
           	</c:otherwise>
           </c:choose>
             
@@ -184,7 +187,7 @@
     <div class="cta-content">
       <div class="container">
         <h2>지금 <br>체험하세요.</h2>
-        <a href="#" class="btn btn-outline btn-xl js-scroll-trigger">무료회원가입</a>
+        <a href="/member/join" class="btn btn-outline btn-xl js-scroll-trigger">무료회원가입</a>
       </div>
     </div>
     <div class="overlay"></div>
