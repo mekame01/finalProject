@@ -249,7 +249,16 @@
   </script>
 
 	
+	
+<!-- 	<script type="text/javascript">
+	function openNaverShopping(){
+		let keyword = ""
+		window.open("https://search.shopping.naver.com/search/all?query="+keyword+"&cat_id=&frm=NVSHATC")
+	}
+	</script> -->
 
 </body>
+
+
 
 </html>
