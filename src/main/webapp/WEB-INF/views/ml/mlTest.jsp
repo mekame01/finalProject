@@ -138,7 +138,7 @@ ul.tab li.current {
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
 		id="mainNav">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top"><img
+			<a class="navbar-brand js-scroll-trigger" href="/index"><img
 				src="/resources/img/logo.png" style="width: 55%;"></a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbarResponsive"
@@ -155,9 +155,9 @@ ul.tab li.current {
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#contact">고객센터</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#contact">로그인</a></li>
+						href="/member/login">로그인</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="member/join">회원가입</a></li>
+						href="/member/join">회원가입</a></li>
 				</ul>
 			</div>
 		</div>
@@ -210,7 +210,7 @@ ul.tab li.current {
 	</section>
 	<footer>
 		<div class="container">
-			<p>&copy; Your Website 2020. All Rights Reserved.</p>
+			<p>&copy; Your Website 2021. All Rights Reserved.</p>
 			<ul class="list-inline">
 				<li class="list-inline-item"><a href="#">Privacy</a></li>
 				<li class="list-inline-item"><a href="#">Terms</a></li>

@@ -83,7 +83,7 @@
           <div class="header-content mx-auto">
             <h1 class="mb-5"><h2>연예인이 입었던 그 옷?</h2> <h1>'잇템'에게 물어봐!</h1><br><br>
             </h1>
-            <h3 class="mb-20">사진을 넣어 클릭만 하면 무료검색이 가능합니다. 비슷한 아이템들로 네이버 쇼핑검색과 가상의 모델로 피팅까지 경험해보세요.</h3>
+            <h3 class="mb-20">사진을 넣어 클릭만 하면 무료검색이 가능합니다. <br>비슷한 아이템들로 네이버 쇼핑검색과 가상의 모델로 피팅까지 경험해보세요.</h3>
             <br><br><br><br><br>
             
            <c:choose>
@@ -184,7 +184,7 @@
     <div class="cta-content">
       <div class="container">
         <h2>지금 <br>체험하세요.</h2>
-        <a href="#" class="btn btn-outline btn-xl js-scroll-trigger">무료회원가입</a>
+        <a href="/member/join" class="btn btn-outline btn-xl js-scroll-trigger">무료회원가입</a>
       </div>
     </div>
     <div class="overlay"></div>

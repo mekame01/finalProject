@@ -25,6 +25,16 @@
 	.valid_info{color:white;font-size:0.5vw;}
 	.tit{display:inline-block; width:50px;}
 	.btn_login{display:block; margin-top:2vh;}
+	
+	.div_login {
+		padding-top: 300px;
+		padding-left: 35%;
+	}
+	
+	.btn-xl {
+		font-size: 13px;
+    	padding: 5px 105px;
+	}
   </style>
 
 </head>
@@ -70,28 +80,21 @@
     <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
-        <div class="col-lg-7 my-auto">
         
-            <div class="div_join">
+            <div class="div_login">
             
     	
-    	<h1>!t Tem Login</h1>
+    	<h1>Login</h1>
 	<span class="valid_info"></span><br>	
 	<span class="tit">ID :</span><input type="text" name="userId" style="border: none; border-radius: 5px 5px 5px 5px" id="id"><br>
 	<span class="tit" style="margin-top: 20px;">PW :</span><input type="password" name="password" style="border: none; border-radius: 5px 5px 5px 5px" id="pw">
-	<button style="border: none; border-radius: 5px 5px 5px 5px" onclick="login()" >로그인</button>	
+	<br><br><br>
+	<button class="btn btn-outline btn-xl js-scroll-trigger" onclick="login()" >로그인</button>	
     	
     </div>
         </div>
-        <div class="col-lg-5 my-auto">
-          <div class="device-container">
-            <div class="device-mockup iphone6_plus gold portrait white">
-            </div>
-
-          </div>
-        </div>
       </div>
-    </div>
+    
   </header>
 
 	

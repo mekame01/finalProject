@@ -28,6 +28,12 @@
 		color : grey;
 		font-size: 3px;
 	}
+	
+	.div_join {
+		padding-top: 350px;
+		padding-left: 35%;
+	}
+	
   </style>
 
 </head>
@@ -71,7 +77,6 @@
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
-        <div class="col-lg-7 my-auto">
         
             <div class="div_join">
             
@@ -124,15 +129,7 @@
          
     </div>
         </div>
-        <div class="col-lg-5 my-auto">
-          <div class="device-container">
-            <div class="device-mockup iphone6_plus gold portrait white">
-            </div>
-
-          </div>
-        </div>
       </div>
-    </div>
   </header>
 
    
