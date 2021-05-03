@@ -22,6 +22,11 @@
   	.mb-20 {
   		font-size: 1em;
   	}
+  	.choice_div >*{
+  	float:left;
+  		font-size:7em;
+  		font-weight: bold;
+  	}
 	.valid_info{color:white;font-size:0.5vw;}
 	.tit{display:inline-block; width:50px;}
 	.btn_login{display:block; margin-top:2vh;}
@@ -71,31 +76,33 @@
     <div class="container h-100">
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
-        
             <div class="div_join">
-            
+           
+            <div class="choice_div"><h1 style="color:skyblue;font-style: italic; margin-right: 10px">C</h1><h1 style="color:lightgreen">H</h1><h1 style="color:orange">O</h1><h1 style="color:purple">I</h1><h1 style="color:yellow">C</h1><h1 style="color:lightblue">E</h1><h1 style="color:white; font-size: 5em; transform:translateY(-40px)">.</h1></div><br><br><br><br><br><br>
+            <h2>피팅모델로 사용할 사진을 고르고,</h2> <h1>'잇템'을 시작하세요!</h1>
          <form:form modelAttribute="member"
     	action="${context}/member/faceimpl" method="post" enctype="multipart/form-data" id="frm_join">
-         <table> 
-         <tr>
-	       	<td>얼굴 사진</td>
-	       	<td>
-	       		<input type="file" name="files" id="contract_file" style="margin-top: 15px; border-radius: 5px 5px 5px 5px; border: none; transform:translateY(-5px)" multiple/>
-	       	</td>
-	       	<td>
-	       	<input type="submit" value="등록" style="margin-top: 15px; border: none; border-radius: 5px 5px 5px 5px"/>
-       		</td>
-       </tr>
-    	</table>  
+	        <input type="file" name="files" id="contract_file" style="margin-top: 15px; border-radius: 5px 5px 5px 5px; border: none; transform:translateY(-5px)" multiple/><br>
+	       	
+	       	<input type="submit" value="시작하기" style="margin-top: 30px; border: none; border-radius: 5px 5px 5px 5px"/>
+
     	</form:form>
     	
     </div>
         </div>
-        <div class="col-lg-5 my-auto">
+         <div class="col-lg-5 my-auto">
           <div class="device-container">
             <div class="device-mockup iphone6_plus gold portrait white">
+              <div class="device">
+                <div class="screen">
+                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                  <img src="/resources/img/얼굴선택1.jpg" style="height: 100%" class="img-fluid" alt="">
+                </div>
+                <div class="button">
+                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                </div>
+              </div>
             </div>
-
           </div>
         </div>
       </div>
