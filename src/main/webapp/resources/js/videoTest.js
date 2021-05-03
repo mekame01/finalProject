@@ -4,10 +4,16 @@ const URL = "/resources/model/";
 let btnName = document.querySelector('#btn_name');
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
+let result = "";
 
 async function init() {
 
 	if (btnName.value == 'on') {
+
+		if (document.querySelector("#webcam-container>canvas")) {
+
+			document.querySelector("#webcam-container").removeChild(webcam.canvas);
+		}
 		btnName.innerHTML = "Stop";
 		btnName.value = "off";
 		// load the model and metadata
@@ -28,14 +34,17 @@ async function init() {
 		document.getElementById("webcam-container").appendChild(webcam.canvas);
 		labelContainer = document.getElementById("label-container");
 		for (let i = 0; i < maxPredictions; i++) { // and class labels
-			console.log(maxPredictions)
+			//console.log(maxPredictions);
 			labelContainer.appendChild(document.createElement("div"));
 		}
-
 	} else {
 
+		document.querySelector('.result-btn').innerHTML = result;
+		document.querySelector('.result-btn').setAttribute('value', result);
+		console.log(document.querySelector('.result-btn').value);
 		end();
 
+		capture();
 	}
 }
 
@@ -58,17 +67,20 @@ async function predict() {
 		const classPrediction =
 			prediction[i].className + ": " + prediction[i].probability.toFixed(2);
 		labelContainer.childNodes[i].innerHTML = classPrediction;
+
+		predictArr.push(prediction[i].probability.toFixed(2));
+		//console.log(predictArr);
+
 		//결과 확인용
 		if (prediction[i].probability.toFixed(2) > 0.5) {
 
-			predictArr.push(prediction[i].probability.toFixed(2));
-			console.log(classPrediction);
 
+			//console.log("예측값 : " + classPrediction);
+			result = prediction[i].className;
 		}
-
+		//캡쳐랑 라벨 보내기 : avatar/fitting 로 데이터 넘기기
 
 	}
-	console.log(predictArr);
 	//result = predictArr.indexOf(Math.max(...predictArr));
 	//console.log("높은 예측값 predictArr: " + result);
 	//인덱스 구하기
@@ -76,9 +88,24 @@ async function predict() {
 }
 
 async function end() {
+
 	btnName.innerHTML = "Start";
 	btnName.value = 'on';
-	document.getElementById("webcam-container").removeChild(webcam.canvas);
+
+
 	labelContainer.innerHTML = "";
+
+}
+
+function capture() {
+	html2canvas(document.querySelector("#webcam-container"), {
+		onrendered: function(canvas) {
+			var img = canvas.toDataURL("image/png");
+			console.log(img);
+			document.querySelector("#label-container").append('<img src=' + img + '>'); // capture 내용이 보여짐
+			window.open(img); // 이미지를 윈도우 팝업으로..
+
+		}
+	});
 }
 

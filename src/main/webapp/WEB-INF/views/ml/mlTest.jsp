@@ -70,12 +70,12 @@
 }
 
 #label-container {
-color: black;
-    display: flex;
-    text-align: left;
-    flex-direction: column;
-    justify-content: space-evenly;
-    transform: translateX(16px);
+	color: black;
+	display: flex;
+	text-align: left;
+	flex-direction: column;
+	justify-content: space-evenly;
+	transform: translateX(16px);
 }
 
 #download {
@@ -121,9 +121,30 @@ ul.tab li.current {
 	display: block;
 }
 
+#image-container {
+	width: 400px;
+	height: 400px;
+	margin-left: 10vw;
+}
+
+#testImg {
+	width: 150px;
+	margin-left: 50px;
+	margin-top: 10px;
+}
+
+.result-btn {
+	border: none;
+	border-radius: 5px;
+}
+
 #tab_wrap {
 	display: flex;
 	flex-direction: column;
+}
+
+h5 {
+	margin-top: 1vh;
 }
 </style>
 <!-- model불러오기 -->
@@ -177,7 +198,6 @@ ul.tab li.current {
 								<li data-tab="tab2"><a href="#">사진으로 검색</a></li>
 							</ul>
 							<div id="tab1" class="modelTest current">
-								<h4>웹캠으로 검색</h4>
 								<button type="button" onclick="init()" id='btn_name' value='on'>Start</button>
 								<div id="result-wrap">
 									<div id="webcam-wrap">
@@ -185,19 +205,75 @@ ul.tab li.current {
 									</div>
 									<div id="label-container"></div>
 								</div>
+								<div id="result">
+									<form action="/avatar/fitting" method="get">
+										<label id="link-lap"> <c:choose>
+												<c:when test="${empty sessionScope.userInfo}">
+													<h5>
+														<script type="text/javascript">
+															function error() {
+																alert('피팅기능을 이용하려면 로그인이 필요합니다.');
+
+															}
+														</script>
+														<input type="button" class="result-btn" value=""
+															name="clothes" /> <a class="fitUrl" id="fitting1"
+															href="/ml/mlTest" onclick="error()">피팅하러가기</a>
+													</h5>
+												</c:when>
+												<c:otherwise>
+													<h5>
+														
+														<input type="submit" class="result-btn" value=""
+															name="clothes" />
+														<a class="fitUrl" id="fitting2" href="/avatar/fitting">피팅하러가기</a>
+														
+													</h5>
+												</c:otherwise>
+											</c:choose>
+										</label>
+									</form>
+								</div>
 							</div>
 							<script src="/resources/js/videoTest.js"></script>
 							<script src="/resources/js/imageTest.js"></script>
 							<div id="tab2" class="modelTest">
-								<h4>이미지로 검색</h4>
 								<label><input type="file" id="testImg" name="img"
-									onchange="setThumbnail(event);"> </label>
+									onchange="setThumbnail(event);"style="border:none;border-radius:5px"> </label>
 
 								<div id="result-wrap2">
 									<div id="image-wrap">
 										<div id="image-container"></div>
 									</div>
 									<div id="label-container2"></div>
+								</div>
+								<div id="result">
+									<form action="/avatar/fitting" method="get">
+										<label id="link-lap"> <c:choose>
+												<c:when test="${empty sessionScope.userInfo}">
+													<h5>
+														<script type="text/javascript">
+															function error() {
+																alert('피팅기능을 이용하려면 로그인이 필요합니다.');
+
+															}
+														</script>
+														<input type="button" class="result-btn" value=""
+															name="clothes" /> <a class="fitUrl" id="fitting1"
+															href="/ml/mlTest" onclick="error()">피팅하러가기</a>
+													</h5>
+												</c:when>
+												<c:otherwise>
+													<h5>
+														<input type="submit" class="result-btn" value=""
+															name="clothes" /> <a class="fitUrl" id="fitting2"
+															href="/avatar/fitting">피팅하러가기</a>
+
+													</h5>
+												</c:otherwise>
+											</c:choose>
+										</label>
+									</form>
 								</div>
 							</div>
 						</div>
