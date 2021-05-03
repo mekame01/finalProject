@@ -1,5 +1,7 @@
 package com.kh.ml.member.model.service;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +13,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.ml.common.code.Code;
 import com.kh.ml.common.mail.MailSender;
+import com.kh.ml.common.util.file.FileUtil;
 import com.kh.ml.member.model.repository.MemberRepository;
 import com.kh.ml.member.model.vo.Member;
+import com.kh.ml.common.code.ErrorCode;
+import com.kh.ml.common.exception.ToAlertException;
+import com.kh.ml.common.util.file.FileVo;
 
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -62,6 +69,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int insertMember(Member member) {
+		
 		member.setPassword(passwordEncoder.encode(member.getPassword()));
 		return memberRepository.insertMember(member);
 	}
@@ -75,6 +83,30 @@ public class MemberServiceImpl implements MemberService{
 			return null;
 		}
 		return userInfo;
+	}
+
+	@Override
+	public void uploadFace(String userId, List<MultipartFile> files) {
+		System.out.println("여기까진오냐");
+		FileUtil fileUtil = new FileUtil();
+		System.out.println("포문 전 "+userId);
+		try {
+			List<FileVo> fileInfo = fileUtil.fileUpload(files);
+			System.out.println("fileInfo : "+fileInfo);
+			for (FileVo fileVo : fileInfo) {
+				System.out.println("여기까진1");
+				System.out.println(userId);
+				System.out.println(fileVo);
+				String renameFileName = fileVo.getRenameFileName();
+				String originFileName = fileVo.getOriginFileName();
+				String savePath = fileVo.getSavePath();
+				memberRepository.updateMember(userId,originFileName,renameFileName,savePath);
+				System.out.println("여기까진2");
+			}
+		} catch (IllegalStateException | IOException e) {
+			throw new ToAlertException(ErrorCode.IB01,e);
+		}
+		
 	}
 	
 

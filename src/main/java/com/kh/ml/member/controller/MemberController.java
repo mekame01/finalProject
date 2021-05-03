@@ -1,5 +1,6 @@
 package com.kh.ml.member.controller;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -17,8 +18,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.context.annotation.SessionScope;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.ml.common.code.ErrorCode;
 import com.kh.ml.common.exception.ToAlertException;
@@ -61,9 +66,11 @@ public class MemberController {
 		return "success";
 	}
 	
-	@PostMapping("mailauth")
+	
+
 	// @Valid 로 지정하면 support 에서 지정한 타입인지 먼저 확인한다.
 	//	넘어오는 컨트롤러 파라미터로 validator 동작
+	@PostMapping("mailauth")
 	public String authenticateEmail(@Valid Member persistInfo
 			, Errors error // 반드시 @Valid 변수 바로 뒤에 와야한다.
 			, HttpSession session
@@ -78,7 +85,7 @@ public class MemberController {
 		// session에 persistInfo 저장
 		session.setAttribute("persistInfo", persistInfo);
 		session.setAttribute("authPath", authPath);
-		
+
 		// memberService의 authenticateEmail 호출해서 회원가입 메일 발송
 		memberService.authenticateEmail(persistInfo, authPath);
 		
@@ -95,7 +102,8 @@ public class MemberController {
 			,@PathVariable String authPath
 			,@SessionAttribute("authPath") String sessionPath
 			,@SessionAttribute("persistInfo") Member persistInfo
-			,Model model) {
+			,Model model
+			) {
 		
 		if(!authPath.equals(sessionPath)) {
 			throw new ToAlertException(ErrorCode.AUTH02);
@@ -127,6 +135,19 @@ public class MemberController {
 	@GetMapping("logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("userInfo");
+		return "redirect:/index";
+	}
+	
+	@GetMapping("face")
+	public void face() {};
+	
+	@PostMapping("faceimpl")
+	public String faceImpl(
+			@RequestParam List<MultipartFile> files,
+			@SessionAttribute (name="userInfo", required = false) Member member) {
+		String userId = member.getUserId();
+		memberService.uploadFace(userId, files);
+		
 		return "redirect:/index";
 	}
 	

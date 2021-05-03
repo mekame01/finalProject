@@ -8,4 +8,10 @@
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
+	<typeAliases>
+		<typeAlias type="com.kh.ml.member.model.vo.Member" alias="member"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="mybatis/mapper/memberMapper.xml"/>
+	</mappers>
 </configuration>

@@ -3,9 +3,11 @@ package com.kh.ml.member.model.repository;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import com.kh.ml.member.model.vo.Member;
+import com.kh.ml.common.util.file.FileVo;
 
 @Mapper
 public interface MemberRepository {
@@ -26,6 +28,8 @@ public interface MemberRepository {
 			+ " values(#{userId},#{password},#{email},#{gender})")
 	int insertMember(Member member);
 	
+	int updateMember(@Param("userId")String userId,@Param("originFileName")String oriname,@Param("renameFileName")String rename,@Param("savePath")String path);
+
 	
 	
 }

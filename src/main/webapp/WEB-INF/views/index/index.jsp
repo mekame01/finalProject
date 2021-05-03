@@ -71,6 +71,8 @@
           	<c:otherwise>  	
           		 <li class="nav-item">
 		            <a class="nav-link js-scroll-trigger" href="/member/logout">로그아웃</a>
+		         </li><li class="nav-item">
+		            <a class="nav-link js-scroll-trigger" href="/member/face">사진등록</a>
 		         </li>
           	</c:otherwise>
           </c:choose>

@@ -118,6 +118,7 @@
               <input type="reset" value="취소" style="margin-top: 15px; margin-left:10px; border: none; border-radius: 5px 5px 5px 5px"/>
            </td>
        </tr>
+
    </table>
    </form:form>
             
