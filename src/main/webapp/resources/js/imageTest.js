@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 async function setThumbnail(event) {
 
 	let reader = new FileReader();
@@ -17,7 +13,6 @@ async function setThumbnail(event) {
 	
 	imgTest();
 }
-
 
 async function imgTest() {
     img = document.querySelector("#image-container img");

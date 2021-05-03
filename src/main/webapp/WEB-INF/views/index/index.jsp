@@ -69,6 +69,9 @@
 		          </li>
           	</c:when>
           	<c:otherwise>  	
+          		 <li class="nav-item">
+		            <a class="nav-link js-scroll-trigger" href="/member/logout">로그아웃</a>
+		         </li>
           	</c:otherwise>
           </c:choose>
         </ul>
@@ -92,7 +95,7 @@
 	            <a href="/member/login" class="btn btn-outline btn-xl js-scroll-trigger" style="margin-left: 20px"> 로그인 </a>
           	</c:when>
           	<c:otherwise>   
-		        <a class="btn btn-outline btn-xl js-scroll-trigger" href="/predict/tensorflow">옷 찾기</a>
+		        <a class="btn btn-outline btn-xl js-scroll-trigger" href="/ml/mlTest">옷 찾기</a>
           	</c:otherwise>
           </c:choose>
             
@@ -246,7 +249,16 @@
   </script>
 
 	
+	
+<!-- 	<script type="text/javascript">
+	function openNaverShopping(){
+		let keyword = ""
+		window.open("https://search.shopping.naver.com/search/all?query="+keyword+"&cat_id=&frm=NVSHATC")
+	}
+	</script> -->
 
 </body>
+
+
 
 </html>

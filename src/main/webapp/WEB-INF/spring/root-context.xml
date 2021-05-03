@@ -18,11 +18,10 @@
    
 
    <!-- mybatis/config 에서 설정정보를 읽어 factory 생성 -->
-   <bean id="sqlSessionFactory"
+   <bean id="sqlSessionFactory" 
       class="org.mybatis.spring.SqlSessionFactoryBean">
       <property name="dataSource" ref="dataSource" />
- <property name="configLocation"
-         value="classpath:mybatis/config.xml"></property>
+	  <property name="configLocation" value="classpath:mybatis/config.xml"></property>
    </bean> 
 
    <mybatis:scan base-package="com.kh.ml"
