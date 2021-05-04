@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>당신이 원하는 !t Tem </title>
+  <script>
+    document.title = "당신이 원하는 !t Tem" ;
+  </script>
   <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/resources/vendor/simple-line-icons/css/simple-line-icons.css">
@@ -25,6 +27,29 @@
 	.valid_info{color:white;font-size:0.5vw;}
 	.tit{display:inline-block; width:50px;}
 	.btn_login{display:block; margin-top:2vh;}
+	
+	.div_login {
+		padding-top: 300px;
+		padding-left: 30%;
+	}
+	
+	.btn-xl {
+   		font-size: 10px;
+    	padding: 5px 105px;
+    }
+    
+    .btn {
+    	border-radius: 6px;
+    }
+    
+    .login_box {
+    	width: 400px;
+    	height: 450px;
+   		background-color: rgba( 0, 0, 0, 0.2 );
+    	text-align: center;
+    	padding-top: 80px;
+    }
+    
   </style>
 
 </head>
@@ -70,28 +95,21 @@
     <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
-        <div class="col-lg-7 my-auto">
         
-            <div class="div_join">
-            
-    	
-    	<h1>!t Tem Login</h1>
+            <div class="div_login">
+            	<div class="login_box">
+    	<h1 class="login-text" style="text-align: center;">Login</h1>
+    	<hr>
 	<span class="valid_info"></span><br>	
 	<span class="tit">ID :</span><input type="text" name="userId" style="border: none; border-radius: 5px 5px 5px 5px" id="id"><br>
 	<span class="tit" style="margin-top: 20px;">PW :</span><input type="password" name="password" style="border: none; border-radius: 5px 5px 5px 5px" id="pw">
-	<button style="border: none; border-radius: 5px 5px 5px 5px" onclick="login()" >로그인</button>	
-    	
+	<br><br><br>
+	<button class="btn btn-outline btn-xl js-scroll-trigger" onclick="login()" >로그인</button>	
+    	</div>
     </div>
-        </div>
-        <div class="col-lg-5 my-auto">
-          <div class="device-container">
-            <div class="device-mockup iphone6_plus gold portrait white">
-            </div>
-
-          </div>
         </div>
       </div>
-    </div>
+   
   </header>
 
 	

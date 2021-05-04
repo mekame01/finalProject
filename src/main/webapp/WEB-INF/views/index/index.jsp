@@ -70,11 +70,12 @@
           	</c:when>
           	<c:otherwise>  	
           		 <li class="nav-item">
-		            <a class="nav-link js-scroll-trigger" href="/member/logout">로그아웃</a>
-		         </li><li class="nav-item">
 		            <a class="nav-link js-scroll-trigger" href="/member/face">사진등록</a>
 		         </li><li class="nav-item">
 		            <a class="nav-link js-scroll-trigger" href="/member/history">내역보기</a>
+		         </li>
+		         <li class="nav-item">
+		            <a class="nav-link js-scroll-trigger" href="/member/logout">로그아웃</a>
 		         </li>
           	</c:otherwise>
           </c:choose>
@@ -89,8 +90,10 @@
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
             <h1 class="mb-5"><h2>연예인이 입었던 그 옷?</h2> <h1>'잇템'에게 물어봐!</h1><br><br>
-            </h1>
-            <h3 class="mb-20">사진을 넣어 클릭만 하면 무료검색이 가능합니다. 비슷한 아이템들로 네이버 쇼핑검색과 가상의 모델로 피팅까지 경험해보세요.</h3>
+            </h1><br>
+            <h3 class="mb-20" style="line-height: 1.5;">사진을 넣거나 웹 캠으로 아이템을 잇템에게 인식시켜보세요. <br>검색결과로 네이버 쇼핑과 가상의 모델로 피팅까지!
+            <br>무료로 잇템을 경험해 보실 수 있습니다.
+            </h3>
             <br><br><br><br><br>
             
            <c:choose>

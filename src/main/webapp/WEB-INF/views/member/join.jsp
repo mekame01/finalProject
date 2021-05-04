@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>당신이 원하는 !t Tem </title>
+  <script>
+    document.title = "당신이 원하는 !t Tem" ;
+  </script>
   <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/resources/vendor/simple-line-icons/css/simple-line-icons.css">
@@ -28,6 +30,28 @@
 		color : grey;
 		font-size: 3px;
 	}
+	
+	.div_join {
+		padding-top: 300px;
+		padding-left: 30%;
+	}
+	
+	.join_box {
+    	width: 400px;
+    	height: 450px;
+   		background-color: rgba( 0, 0, 0, 0.2 );
+    	text-align: center;
+    	padding-top: 80px;
+    }
+    
+    #frm_join {
+    	text-align: left;
+    	padding-left: 50px;
+    	padding-top: 50px;
+
+    }
+	
+	
   </style>
 
 </head>
@@ -71,9 +95,9 @@
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
-        <div class="col-lg-7 my-auto">
         
             <div class="div_join">
+            	<div class="join_box">
             
             <form:form modelAttribute="member"
     	action="${context}/member/mailauth" method="post" id="frm_join">
@@ -114,6 +138,7 @@
         </tr>
         <tr>
            <td>
+           	  <br><br>
               <input type="submit" value="가입" style="margin-top: 15px; border: none; border-radius: 5px 5px 5px 5px"/>
               <input type="reset" value="취소" style="margin-top: 15px; margin-left:10px; border: none; border-radius: 5px 5px 5px 5px"/>
            </td>
@@ -122,18 +147,10 @@
    </table>
    </form:form>
             
-         
+         </div>
     </div>
-        </div>
-        <div class="col-lg-5 my-auto">
-          <div class="device-container">
-            <div class="device-mockup iphone6_plus gold portrait white">
-            </div>
-
-          </div>
         </div>
       </div>
-    </div>
   </header>
 
    

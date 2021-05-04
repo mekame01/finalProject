@@ -106,8 +106,7 @@
 
 .modelTest {
 	display: none;
-	background-color: white;
-	opacity: 90%;
+	border: solid 1px white;
 	padding: 6px 12px;
 	color: #0000;
 }
@@ -146,6 +145,10 @@ ul.tab li.current {
 h5 {
 	margin-top: 1vh;
 }
+
+.result {
+	float:right;
+}
 </style>
 <!-- model불러오기 -->
 <script
@@ -175,23 +178,18 @@ h5 {
 						href="#features">이용안내</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#contact">고객센터</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#contact">로그인</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="member/join">회원가입</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<header class="masthead" style="min-height: 30vh; height: 30vh;">
-	</header>
+	<header class="masthead" style="height: auto; padding-top: 150px; min-height: 960px;">
 
-	<section class="download bg-primary text-center" id="download">
+	<section id="download">
 		<div class="container" style="height: 400px;">
 			<div class="row">
 				<div class="col-md-8 mx-auto">
 					<h2 class="section-heading">
-						<h2 style="font-size: 50px; font-style: 600;">체험하기</h2>
+						<h2 style="font-size: 50px;">체험하기</h2><br>
 						<div id='tab_wrap'>
 							<ul class='tab' style="margin: 0">
 								<li class="current" data-tab="tab1"><a href="#">웹캠으로 검색</a></li>
@@ -287,16 +285,7 @@ h5 {
 			</div>
 		</div>
 	</section>
-	<footer>
-		<div class="container">
-			<p>&copy; Your Website 2020. All Rights Reserved.</p>
-			<ul class="list-inline">
-				<li class="list-inline-item"><a href="#">Privacy</a></li>
-				<li class="list-inline-item"><a href="#">Terms</a></li>
-				<li class="list-inline-item"><a href="#">FAQ</a></li>
-			</ul>
-		</div>
-	</footer>
+	</header>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>
