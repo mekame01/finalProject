@@ -34,11 +34,9 @@ public class AvatarController {
 	
 	@GetMapping("fitting")
 	public void fitting(@RequestParam(defaultValue = "0") Integer avatarIdx
+			, @RequestParam String clothesCode
 			, Model model
 			, @SessionAttribute(name = "userInfo") Member member) {
-		String top = "1";
-		String bottom = "4";
-		String shoe = "7";
 		
 		//아바타 조회해오기
 		Avatar avatar = avatarService.selectMaxAvatarByUserId(member.getUserId());
@@ -63,50 +61,28 @@ public class AvatarController {
 		}
 		
 		
-		if(top != null) {
-			List<Clothes> tops = clothesService.selectClohtesByClothesCode(top);
-			List<FileVo> files = new ArrayList<FileVo>();
-			int[] topIdxList = new int[tops.size()];  
+		List<Clothes> clothesList = clothesService.selectClohtesByClothesCode(clothesCode);
+		List<FileVo> files = new ArrayList<FileVo>();
+		int[] IdxList = new int[clothesList.size()];  
 
-			for(int i = 0; i < tops.size(); i++) {
-				Clothes clothes = tops.get(i);
-				FileVo file = clothesService.selectClothesFile(clothes.getClothesFIdx());
-				files.add(file);
-				topIdxList[i] = clothes.getClothesIdx();
-			}
-			model.addAttribute("topIdxList", topIdxList);
+		for(int i = 0; i < clothesList.size(); i++) {
+			Clothes clothes = clothesList.get(i);
+			FileVo file = clothesService.selectClothesFile(clothes.getClothesFIdx());
+			files.add(file);
+			IdxList[i] = clothes.getClothesIdx();
+		}
+		
+		if(clothesCode.equals("1") || clothesCode.equals("2") || clothesCode.equals("3")) {
+			model.addAttribute("topIdxList", IdxList);
 			model.addAttribute("tops", files);
-		}
-		
-		if(bottom != null) {
-			List<Clothes> bottoms = clothesService.selectClohtesByClothesCode(bottom);
-			List<FileVo> files = new ArrayList<FileVo>();
-			int[] bottomIdxList = new int[bottoms.size()];  
-
-			for(int i = 0; i < bottoms.size(); i++) {
-				Clothes clothes = bottoms.get(i);
-				FileVo file = clothesService.selectClothesFile(clothes.getClothesFIdx());
-				files.add(file);
-				bottomIdxList[i] = clothes.getClothesIdx();
-			}
-			model.addAttribute("bottomIdxList", bottomIdxList);
+		}else if(clothesCode.equals("4") || clothesCode.equals("5") || clothesCode.equals("6")) {
+			model.addAttribute("bottomIdxList", IdxList);
 			model.addAttribute("bottoms", files);
-		}
-		
-		if(shoe != null) {
-			List<Clothes> shoes = clothesService.selectClohtesByClothesCode(shoe);
-			List<FileVo> files = new ArrayList<FileVo>();
-			int[] shoesIdxList = new int[shoes.size()];  
-
-			for(int i = 0; i < shoes.size(); i++) {
-				Clothes clothes = shoes.get(i);
-				FileVo file = clothesService.selectClothesFile(clothes.getClothesFIdx());
-				files.add(file);
-				shoesIdxList[i] = clothes.getClothesIdx();
-			}
-			model.addAttribute("shoesIdxList", shoesIdxList);
+		}else if(clothesCode.equals("7") || clothesCode.equals("8")) {
+			model.addAttribute("shoesIdxList", IdxList);
 			model.addAttribute("shoes", files);
 		}
+		
 	}
 	
 	@PostMapping("saveImage")
