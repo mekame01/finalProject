@@ -133,7 +133,7 @@ ul.tab li.current {
 	margin-top: 10px;
 }
 
-.result-btn {
+.result-btn, .result-btn2{
 	border: none;
 	border-radius: 5px;
 }
@@ -159,7 +159,7 @@ h5 {
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
 		id="mainNav">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top"><img
+			<a class="navbar-brand js-scroll-trigger" href="/index"><img
 				src="/resources/img/logo.png" style="width: 55%;"></a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbarResponsive"
@@ -218,16 +218,16 @@ h5 {
 														</script>
 														<input type="button" class="result-btn" value=""
 															name="clothes" /> <a class="fitUrl" id="fitting1"
-															href="/ml/mlTest" onclick="error()">피팅하러가기</a>
+															href="/member/login" onclick="error()">피팅하러가기</a>
 													</h5>
 												</c:when>
 												<c:otherwise>
 													<h5>
-														
+
 														<input type="submit" class="result-btn" value=""
-															name="clothes" />
-														<a class="fitUrl" id="fitting2" href="/avatar/fitting">피팅하러가기</a>
-														
+															name="clothes" /> <a class="fitUrl" id="fitting2"
+															href="/avatar/fitting">피팅하러가기</a>
+
 													</h5>
 												</c:otherwise>
 											</c:choose>
@@ -238,9 +238,12 @@ h5 {
 							<script src="/resources/js/videoTest.js"></script>
 							<script src="/resources/js/imageTest.js"></script>
 							<div id="tab2" class="modelTest">
-								<label><input type="file" id="testImg" name="img"
-									onchange="setThumbnail(event);"style="border:none;border-radius:5px"> </label>
-
+								<label><input type="file" id="testImg" class="fbtn btn-outline btn-xl js-scroll-trigger"name="img"
+									onchange="setThumbnail(event);"
+									style="border: none; border-radius: 5px"> </label>
+								<script type="text/javascript">
+									
+								</script>
 								<div id="result-wrap2">
 									<div id="image-wrap">
 										<div id="image-container"></div>
@@ -258,14 +261,14 @@ h5 {
 
 															}
 														</script>
-														<input type="button" class="result-btn" value=""
+														<input type="button" class="result-btn2" value=""
 															name="clothes" /> <a class="fitUrl" id="fitting1"
-															href="/ml/mlTest" onclick="error()">피팅하러가기</a>
+															href="/member/login" onclick="error()">피팅하러가기</a>
 													</h5>
 												</c:when>
 												<c:otherwise>
 													<h5>
-														<input type="submit" class="result-btn" value=""
+														<input type="submit" class="result-btn2" value=""
 															name="clothes" /> <a class="fitUrl" id="fitting2"
 															href="/avatar/fitting">피팅하러가기</a>
 

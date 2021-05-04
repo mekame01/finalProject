@@ -2,11 +2,19 @@
  * 
  */
 
+function shoesTest() {
+	document.querySelector('.result-btn2').innerHTML = '운동화';
+	document.querySelector('.result-btn2')
+		.setAttribute('value', '운동화');
+	console
+		.log(document
+			.querySelector('.result-btn2').value);
 
+}
 
 async function setThumbnail(event) {
-	if(document.querySelector("#image-container>img")){
-	document.querySelector("#image-container").removeChild(img);
+	if (document.querySelector("#image-container>img")) {
+		document.querySelector("#image-container").removeChild(img);
 	}
 	let reader = new FileReader();
 
@@ -19,10 +27,10 @@ async function setThumbnail(event) {
 		img.setAttribute('id', "uploadImg");
 
 		document.querySelector("#image-container").appendChild(img);
-
-
 	};
 	reader.readAsDataURL(event.target.files[0]);
+
+	shoesTest();
 
 	imgTest();
 }
