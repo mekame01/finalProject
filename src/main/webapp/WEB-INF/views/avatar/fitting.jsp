@@ -1,15 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
-<!DOCTYPE HTML>
-<html>
 <head>
+
 <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+   <script>
+    document.title = "당신이 원하는 !t Tem" ;
+  </script>
+  
+  <!-- Bootstrap core CSS -->
+  <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/resources/vendor/simple-line-icons/css/simple-line-icons.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="/resources/device-mockups/device-mockups.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="/resources/css/new-age.min.css" rel="stylesheet">
+
 <style type="text/css">
-html,
-body {
-	margin: 0;
-	padding: 0;
+.buttons {
+	justify-content: space-between;
+    display: flex;
+}
+.btn-xl {
+    font-size: 12px;
+    padding: 5px 30px;
+}
+
+.btn {
+    border-radius: 10px;
 }
 
 .draggable {
@@ -22,8 +52,37 @@ body {
   crossorigin="anonymous"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
+
 <body>
-<div class="content">
+ <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="/index"><img src="/resources/img/logo.png" style="width:55%;"></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/avatar/fitting">체험하기</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <header class="masthead" style="height:auto;">
+  <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-lg-7 my-auto">
+          <div class="header-content mx-auto" style="height:150px;">
+        </div>
+        </div>
+      </div>
+    </div>
+    
+<div class="content" style="padding-left: 300px; padding-right: 200px;">
 <form action="/avatar/modify" method="post" id="frm_save" style="border: solid; float: left;" enctype="multipart/form-data">
 	<input type="hidden" id="modelFidx" name="modelFidx">
 	<input type="hidden" id="top" name="top">
@@ -36,19 +95,25 @@ body {
 	<input type="hidden" id="shoesX" name="shoesX">
 	<input type="hidden" id="shoesY" name="shoesY">
 	<input type="hidden" id="files" name="files">
-	<button type="button" onclick="save()">저장</button>
-	<button type="button" id="delete" onclick="deleteImage()">지우기</button>
+	
 	<div id="capture">
 		<img id="avatar" alt="image" src="/upload/2021/5/1/model.png">
 	</div>
+	<br>
+	<div class="buttons">
+<button class="btn btn-outline btn-xl js-scroll-trigger" type="button" onclick="save()">저장</button>
+<button class="btn btn-outline btn-xl js-scroll-trigger" type="button" id="delete" onclick="deleteImage()">지우기</button>
+	</div>
+	<br>
 </form>
+
 <c:forEach var="top" items="${requestScope.tops}" varStatus="imageStatus">
-	<img class="clothes top draggable" style="width: 200px;" data-idx="${requestScope.topIdxList[imageStatus.index]}"
+	<img class="clothes top draggable" style="max-width: 200px;" data-idx="${requestScope.topIdxList[imageStatus.index]}"
 	src="/upload/${top.savePath}${top.renameFileName}" alt="Image">
 </c:forEach>
 <br>
 <c:forEach var="bottom" items="${requestScope.bottoms}" varStatus="imageStatus">
-	<img class="clothes bottom draggable" style="width: 200px;" data-idx="${requestScope.bottomIdxList[imageStatus.index]}"
+	<img class="clothes bottom draggable" style="max-width: 280px; max-height: 330px;" data-idx="${requestScope.bottomIdxList[imageStatus.index]}"
 	src="/upload/${bottom.savePath}${bottom.renameFileName}" alt="Image">
 </c:forEach>
 <br>
@@ -58,6 +123,9 @@ body {
 </c:forEach>
 
 </div>
+
+
+
 <script type="text/javascript">
 let lastClick;
 let deleteImage = () => {
@@ -295,5 +363,8 @@ document.onmousedown = function(e) {
 	return false;
 }
 </script>
+</header>
+
+
 </body>
 </html>
