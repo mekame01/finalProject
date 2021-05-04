@@ -47,9 +47,10 @@ public class MemberValidator implements Validator{
 		}
 		
 		// 3. 이메일 존재 유무
-		if(memberRepository.selectMemberByEmail(member.getEmail()) > 0) {
-			errors.rejectValue("email", "error.email", "이미 존재하는 이메일 입니다.");
-		}
+		/*
+		 * if(memberRepository.selectMemberByEmail(member.getEmail()) > 0) {
+		 * errors.rejectValue("email", "error.email", "이미 존재하는 이메일 입니다."); }
+		 */
 		
 
 		
