@@ -33,6 +33,12 @@ public class ClothesServiceImpl implements ClothesService{
 		return clothesRepository.selectClothesFile(fIdx);
 	}
 
+	@Override
+	public FileVo selectFileByClothesIdx(int clothesIdx) {
+		Clothes clothes = clothesRepository.selectOneClothes(clothesIdx);
+		return clothesRepository.selectOneFile(clothes.getClothesFIdx());
+	}
+
 	@Transactional
 	@Override
 	public void updateClothes(String division, List<MultipartFile> files, List<Integer> delFiles) {
@@ -67,7 +73,6 @@ public class ClothesServiceImpl implements ClothesService{
 		}
 			
 	}
-
 
 	@Override
 	public List<Clothes> selectClohtesByClothesCode(String clothesCode) {

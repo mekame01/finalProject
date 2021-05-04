@@ -19,6 +19,9 @@ public interface ClothesRepository {
 	@Select("select * from tb_file where f_idx=#{fIdx}")
 	FileVo selectClothesFile(int fIdx);
 	
+	@Select("select * from tb_clothes where clothes_idx = #{clothesIdx}")
+	Clothes selectOneClothes(int clothesIdx);
+	
 	@Insert("insert into tb_clothes(clothes_idx, clothes_code, clothes_f_idx)"
 			+ "values(sc_clothes_idx.nextval,#{clothesCode},sc_file_idx.currval)")
 	int insertClohtes(Clothes clothes);
@@ -26,9 +29,6 @@ public interface ClothesRepository {
 	@Insert("insert into tb_file(f_idx, type_idx, origin_file_name, rename_file_name, save_path)"
 			+ "values(sc_file_idx.nextval, ' ', #{originFileName}, #{renameFileName}, #{savePath})")
 	int insertFile(FileVo fileVo);
-	
-	@Select("select * from tb_clothes where clothes_idx = #{clothesIdx}")
-	Clothes selectOneClothes(int clothesIdx);
 	
 	@Delete("delete from tb_clothes where clothes_idx = #{clothesIdx}")
 	int deleteClohtes(int clothesIdx);

@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.kh.ml.avatar.model.vo.Avatar;
+import com.kh.ml.common.util.file.FileVo;
 import com.kh.ml.member.model.vo.Member;
 
 public interface MemberService {
@@ -16,4 +18,6 @@ public interface MemberService {
 	
 	void uploadFace(String userId, List<MultipartFile> files);
 	
+	List<Avatar> selectAvatarList(String userId);
+	FileVo selectOneFile(int fIdx);
 }

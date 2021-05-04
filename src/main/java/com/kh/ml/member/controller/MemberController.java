@@ -1,5 +1,6 @@
 package com.kh.ml.member.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,8 +26,10 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.kh.ml.avatar.model.vo.Avatar;
 import com.kh.ml.common.code.ErrorCode;
 import com.kh.ml.common.exception.ToAlertException;
+import com.kh.ml.common.util.file.FileVo;
 import com.kh.ml.member.model.service.MemberService;
 import com.kh.ml.member.model.vo.Member;
 import com.kh.ml.member.validator.MemberValidator;
@@ -149,6 +152,19 @@ public class MemberController {
 		memberService.uploadFace(userId, files);
 		
 		return "redirect:/index";
+	}
+	
+	@GetMapping("history")
+	public void history(Model model
+			, @SessionAttribute (name="userInfo", required = true) Member member) {
+		List<Avatar> avatars = memberService.selectAvatarList(member.getUserId());
+		List<FileVo> files = new ArrayList<FileVo>();
+		
+		for (Avatar avatar : avatars) {
+			FileVo fileVo = memberService.selectOneFile(avatar.getfIdx());
+			files.add(fileVo);
+		}
+		model.addAttribute("files", files);
 	}
 	
 }

@@ -39,7 +39,19 @@ body {
 	<button type="button" onclick="save()">저장</button>
 	<button type="button" id="delete" onclick="deleteImage()">지우기</button>
 	<div id="capture">
-		<img id="avatar" alt="image" src="/upload/2021/5/1/model.png">
+		<img id="avatar" alt="image" src="/upload/${sessionScope.userInfo.savePath}${sessionScope.userInfo.renameFileName}">
+		<c:if test="${!empty requestScope.avatar && requestScope.avatar.top ne 0}">
+			<img class="clothes top draggable" style="width: 200px;" data-idx="${requestScope.avatar.top}"
+			src="/upload/${requestScope.top.savePath}${requestScope.top.renameFileName}" alt="Image">
+		</c:if>
+		<c:if test="${!empty requestScope.avatar && requestScope.avatar.bottom ne 0}">
+			<img class="clothes top draggable" style="width: 200px;" data-idx="${requestScope.avatar.bottom}"
+			src="/upload/${requestScope.bottom.savePath}${requestScope.bottom.renameFileName}" alt="Image">
+		</c:if>
+		<c:if test="${!empty requestScope.avatar && requestScope.avatar.shoes ne 0}">
+			<img class="clothes top draggable" style="width: 200px;" data-idx="${requestScope.avatar.shoes}"
+			src="/upload/${requestScope.shoe.savePath}${requestScope.shoe.renameFileName}" alt="Image">
+		</c:if>
 	</div>
 </form>
 <c:forEach var="top" items="${requestScope.tops}" varStatus="imageStatus">

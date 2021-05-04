@@ -1,12 +1,15 @@
 package com.kh.ml.member.model.repository;
 
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import com.kh.ml.member.model.vo.Member;
+import com.kh.ml.avatar.model.vo.Avatar;
 import com.kh.ml.common.util.file.FileVo;
 
 @Mapper
@@ -30,6 +33,9 @@ public interface MemberRepository {
 	
 	int updateMember(@Param("userId")String userId,@Param("originFileName")String oriname,@Param("renameFileName")String rename,@Param("savePath")String path);
 
+	@Select("select * from tb_avatar where user_id = #{userId} order by avatar_idx desc")
+	List<Avatar> selectAvatarList(String userId);
 	
-	
+	@Select("select * from tb_file where f_idx = #{fIdx}")
+	FileVo selectOneFile(int fIdx);
 }
