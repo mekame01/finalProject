@@ -42,10 +42,23 @@ public class AvatarController {
 		//아바타 조회해오기
 		if(avatarIdx.intValue() != 0) {
 			Avatar avatar = avatarService.selectOneAvatar(avatarIdx.intValue());
-			model.addAttribute("avatar", avatar);
-		} else {
-			//없으면 얼굴만 불러오기
 			
+			model.addAttribute("avatar", avatar);
+			
+			if(avatar.getTop() != 0) {
+				FileVo fileVo = clothesService.selectFileByClothesIdx(avatar.getTop());
+				model.addAttribute("top", fileVo);
+			}
+			
+			if(avatar.getBottom() != 0) {
+				FileVo fileVo = clothesService.selectFileByClothesIdx(avatar.getBottom());
+				model.addAttribute("bottom", fileVo);
+			}
+			
+			if(avatar.getShoes() != 0) {
+				FileVo fileVo = clothesService.selectFileByClothesIdx(avatar.getShoes());
+				model.addAttribute("shoe", fileVo);
+			}
 		}
 		
 		
@@ -118,7 +131,7 @@ public class AvatarController {
 			, @RequestParam(defaultValue = "0") Integer shoes
 			, @RequestParam(defaultValue = "0") Integer shoesX
 			, @RequestParam(defaultValue = "0") Integer shoesY
-			, @SessionAttribute(name = "userInfo", required = false) Member member) {
+			, @SessionAttribute(name = "userInfo") Member member) {
 		
 		Avatar avatar = new Avatar();
 		
@@ -132,13 +145,10 @@ public class AvatarController {
 		avatar.setShoes(shoes.intValue());
 		avatar.setShoesX(shoesX.intValue());
 		avatar.setShoesY(shoesY.intValue());
-		//나중에 조건을 없애자
-		if(member == null) {
-			avatar.setUserId("null");
-		}
+		avatar.setUserId(member.getUserId());
 		
 		avatarService.insertAvatar(avatar);
 		
-		return "redirect:/member/mypage/history";
+		return "redirect:/member/history";
 	}
 }

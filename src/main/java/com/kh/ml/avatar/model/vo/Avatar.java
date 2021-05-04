@@ -14,6 +14,7 @@ public class Avatar {
 	private int shoes;
 	private int shoesX;
 	private int shoesY;
+	private int fIdx;
 
 	public int getAvatarIdx() {
 		return avatarIdx;
@@ -111,10 +112,19 @@ public class Avatar {
 		this.shoesY = shoesY;
 	}
 
+	public int getfIdx() {
+		return fIdx;
+	}
+
+	public void setfIdx(int fIdx) {
+		this.fIdx = fIdx;
+	}
+
 	@Override
 	public String toString() {
 		return "Avatar [avatarIdx=" + avatarIdx + ", userId=" + userId + ", modelFIdx=" + modelFIdx + ", top=" + top
 				+ ", topX=" + topX + ", topY=" + topY + ", bottom=" + bottom + ", bottomX=" + bottomX + ", bottomY="
-				+ bottomY + ", shoes=" + shoes + ", shoesX=" + shoesX + ", shoesY=" + shoesY + "]";
+				+ bottomY + ", shoes=" + shoes + ", shoesX=" + shoesX + ", shoesY=" + shoesY + ", fIdx=" + fIdx + "]";
 	}
+
 }

@@ -15,6 +15,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.kh.ml.avatar.model.vo.Avatar;
 import com.kh.ml.common.code.Code;
 import com.kh.ml.common.mail.MailSender;
 import com.kh.ml.common.util.file.FileUtil;
@@ -107,6 +108,16 @@ public class MemberServiceImpl implements MemberService{
 			throw new ToAlertException(ErrorCode.IB01,e);
 		}
 		
+	}
+
+	@Override
+	public List<Avatar> selectAvatarList(String userId) {
+		return memberRepository.selectAvatarList(userId);
+	}
+
+	@Override
+	public FileVo selectOneFile(int fIdx) {
+		return memberRepository.selectOneFile(fIdx);
 	}
 	
 
