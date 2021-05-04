@@ -9,6 +9,7 @@ function shoesTest() {
 	console
 		.log(document
 			.querySelector('.result-btn2').value);
+	document.querySelector('#fitting4 input').setAttribute('value', 8);
 
 }
 

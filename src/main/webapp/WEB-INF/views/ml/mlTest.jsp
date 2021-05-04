@@ -204,39 +204,48 @@ h5 {
 									<div id="label-container"></div>
 								</div>
 								<div id="result">
-									<form action="/avatar/fitting" method="get">
-										<label id="link-lap"> <c:choose>
-												<c:when test="${empty sessionScope.userInfo}">
-													<h5>
-														<script type="text/javascript">
-															function error() {
-																alert('피팅기능을 이용하려면 로그인이 필요합니다.');
 
-															}
-														</script>
+									<label id="link-lap"> <c:choose>
+											<c:when test="${empty sessionScope.userInfo}">
+												<h5>
+													<script type="text/javascript">
+														function error() {
+															alert('피팅기능을 이용하려면 로그인이 필요합니다.');
+
+														}
+													</script>
+													<input type="button" class="result-btn" value=""
+														name="clothes" /> <a class="fitUrl" id="fitting1"
+														href="/member/login" onclick="error()">피팅하러가기</a>
+												</h5>
+											</c:when>
+											<c:otherwise>
+
+												<h5>
+													<form action="/avatar/fitting" method="get">
 														<input type="button" class="result-btn" value=""
-															name="clothes" /> <a class="fitUrl" id="fitting1"
-															href="/member/login" onclick="error()">피팅하러가기</a>
-													</h5>
-												</c:when>
-												<c:otherwise>
-													<h5>
+															name="clothes" /> <a class="fitUrl" id="fitting2">피팅하러가기<input type="submit"
+															value="" style="display: none;" name="newlabel"></a>
+														<script>
+																document.querySelector('#fitting2').addEventListener('click', (e)=>{
+																	let param = document.querySelector('#fitting2 input').value;
 
-														<input type="submit" class="result-btn" value=""
-															name="clothes" /> <a class="fitUrl" id="fitting2"
-															href="/avatar/fitting">피팅하러가기</a>
+																	location.href="/avatar/fitting?clothesCode=" + param;
 
-													</h5>
-												</c:otherwise>
-											</c:choose>
-										</label>
-									</form>
+																})
+															</script>
+													</form>
+												</h5>
+											</c:otherwise>
+										</c:choose>
+									</label>
 								</div>
 							</div>
 							<script src="/resources/js/videoTest.js"></script>
 							<script src="/resources/js/imageTest.js"></script>
 							<div id="tab2" class="modelTest">
-								<label><input type="file" id="testImg" class="fbtn btn-outline btn-xl js-scroll-trigger"name="img"
+								<label><input type="file" id="testImg"
+									class="fbtn btn-outline btn-xl js-scroll-trigger" name="img"
 									onchange="setThumbnail(event);"
 									style="border: none; border-radius: 5px"> </label>
 								<script type="text/javascript">
@@ -249,7 +258,6 @@ h5 {
 									<div id="label-container2"></div>
 								</div>
 								<div id="result">
-									<form action="/avatar/fitting" method="get">
 										<label id="link-lap"> <c:choose>
 												<c:when test="${empty sessionScope.userInfo}">
 													<h5>
@@ -260,17 +268,25 @@ h5 {
 															}
 														</script>
 														<input type="button" class="result-btn2" value=""
-															name="clothes" /> <a class="fitUrl" id="fitting1"
+															name="clothes" /> <a class="fitUrl" id="fitting3"
 															href="/member/login" onclick="error()">피팅하러가기</a>
 													</h5>
 												</c:when>
 												<c:otherwise>
 													<h5>
-														<input type="submit" class="result-btn2" value=""
-															name="clothes" /> <a class="fitUrl" id="fitting2"
-															href="/avatar/fitting">피팅하러가기</a>
+													<form action="/avatar/fitting" method="get">
+														<input type="button" class="result-btn2" value=""
+															name="clothes" /> <a class="fitUrl" id="fitting4">피팅하러가기<input
+															type="submit" value="" style="display: none;"></a>
+														<script>
+																document.querySelector('#fitting4').addEventListener('click', (e)=>{
+																	let param = document.querySelector('#fitting4 input').value;
 
-													</h5>
+																	location.href="/avatar/fitting?clothesCode=" + param;
+
+																})
+															</script>
+												</h5>
 												</c:otherwise>
 											</c:choose>
 										</label>

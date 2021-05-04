@@ -5,14 +5,14 @@ let btnName = document.querySelector('#btn_name');
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
 let result = "";
-
+let newRes;
 async function init() {
 
 	if (btnName.value == 'on') {
 
 		if (document.querySelector("#webcam-container>canvas")) {
 
-			document.querySelector("#webcam-container").removeChild(webcam.canvas);
+					document.querySelector("#webcam-container").removeChild(webcam.canvas);
 		}
 		btnName.innerHTML = "Stop";
 		btnName.value = "off";
@@ -39,10 +39,14 @@ async function init() {
 		}
 	} else {
 
-		document.querySelector('.result-btn').innerHTML = result;
+		document.querySelector('.result-btn').innerHTML = newRes;
 		document.querySelector('.result-btn').setAttribute('value', result);
-		console.log(document.querySelector('.result-btn').value);
+		
 		end();
+		if(document.querySelector('#fitting2 input')){
+			
+		document.querySelector('#fitting2 input').setAttribute('value', newRes);
+		}
 
 		capture();
 	}
@@ -55,6 +59,7 @@ async function loop() {
 
 }
 
+
 // 이미지 예측
 async function predict() {
 	// predict can take in an image, video or canvas html element
@@ -62,7 +67,8 @@ async function predict() {
 
 
 	let predictArr = [];
-	let res;
+	let newLabeles = [7, 4, 2, 5, 3, 1, 8, 6];
+
 	for (let i = 0; i < maxPredictions; i++) {
 		const classPrediction =
 			prediction[i].className + ": " + prediction[i].probability.toFixed(2);
@@ -77,6 +83,8 @@ async function predict() {
 
 			//console.log("예측값 : " + classPrediction);
 			result = prediction[i].className;
+			newRes = newLabeles[i];
+			console.log("new label : " + newRes);
 		}
 		//캡쳐랑 라벨 보내기 : avatar/fitting 로 데이터 넘기기
 
@@ -86,6 +94,11 @@ async function predict() {
 	//인덱스 구하기
 
 }
+
+
+
+
+
 
 async function end() {
 
