@@ -171,14 +171,42 @@ h5 {
 				Menu <i class="fas fa-bars"></i>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#download">체험하기</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#features">이용안내</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#contact">고객센터</a></li>
-				</ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#download">체험하기</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#features">이용안내</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">고객센터</a>
+          </li>
+           <c:choose>
+          	<c:when test="${empty sessionScope.userInfo}">
+          		 <li class="nav-item">
+		            <a class="nav-link js-scroll-trigger" href="/member/login">로그인</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link js-scroll-trigger" href="/member/join">회원가입</a>
+		          </li>
+          	</c:when>
+          	<c:otherwise>  	
+          		 <li class="nav-item">
+		            <a class="nav-link js-scroll-trigger" href="/member/face">사진등록</a>
+		         </li><li class="nav-item">
+		            <a class="nav-link js-scroll-trigger" href="/member/history">저장내역</a>
+		         </li>
+		         <li class="nav-item">
+		            <a class="nav-link js-scroll-trigger" href="/member/logout">로그아웃</a>
+		         </li>
+		         <c:if test="${sessionScope.userInfo.userId eq 'admin'}">
+			         <li class="nav-item">
+			            <a class="nav-link js-scroll-trigger" href="/clothes/clothes">옷 등록하기</a>
+			         </li>
+		         </c:if>
+          	</c:otherwise>
+          </c:choose>
+        </ul>
 			</div>
 		</div>
 	</nav>
