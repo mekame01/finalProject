@@ -115,15 +115,15 @@
     </div>
   </nav>
   
-  <header class="masthead" style="height:auto;">
+  <header class="masthead" style="height:auto; min-height:950px;">
   <div class="container h-100">
       <div class="row h-100">
-        <div class="col-lg-7 my-auto">
+        
           <div class="header-content mx-auto" style="height:150px;">
         </div>
         </div>
-      </div>
-    </div>
+</div>
+   
     
 <div class="content" style="padding-left: 300px; padding-right: 200px;">
 <form action="/avatar/modify" method="post" id="frm_save" style="border: solid; float: left;" enctype="multipart/form-data">
@@ -187,7 +187,7 @@
 let lastClick;
 let deleteImage = () => {
 	//console.dir(lastClick);
-	if(confirm('이 옷을 삭제하시겠습니까?')) {
+	if(confirm('마지막으로 선택한 옷을 삭제하시겠습니까?')) {
 		lastClick.remove();
 	}
 }

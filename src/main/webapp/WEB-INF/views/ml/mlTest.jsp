@@ -127,9 +127,7 @@ ul.tab li.current {
 }
 
 #testImg {
-	width: 150px;
-	margin-left: 50px;
-	margin-top: 10px;
+	width: 250px;
 }
 
 .result-btn, .result-btn2{
@@ -182,7 +180,7 @@ h5 {
 			</div>
 		</div>
 	</nav>
-	<header class="masthead" style="height: auto; padding-top: 150px; min-height: 960px;">
+	<header class="masthead" style="height: auto; padding-top: 150px; min-height: 950px;">
 
 	<section id="download">
 		<div class="container" style="height: 400px;">
