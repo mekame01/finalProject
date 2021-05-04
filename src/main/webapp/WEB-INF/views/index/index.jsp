@@ -72,11 +72,16 @@
           		 <li class="nav-item">
 		            <a class="nav-link js-scroll-trigger" href="/member/face">사진등록</a>
 		         </li><li class="nav-item">
-		            <a class="nav-link js-scroll-trigger" href="/member/history">내역보기</a>
+		            <a class="nav-link js-scroll-trigger" href="/member/history">저장내역</a>
 		         </li>
 		         <li class="nav-item">
 		            <a class="nav-link js-scroll-trigger" href="/member/logout">로그아웃</a>
 		         </li>
+		         <c:if test="${sessionScope.userInfo.userId eq 'admin'}">
+			         <li class="nav-item">
+			            <a class="nav-link js-scroll-trigger" href="/clothes/clothes">옷 등록하기</a>
+			         </li>
+		         </c:if>
           	</c:otherwise>
           </c:choose>
         </ul>

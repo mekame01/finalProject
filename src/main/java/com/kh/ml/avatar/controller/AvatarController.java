@@ -34,15 +34,16 @@ public class AvatarController {
 	
 	@GetMapping("fitting")
 	public void fitting(@RequestParam(defaultValue = "0") Integer avatarIdx
-			, Model model) {
+			, Model model
+			, @SessionAttribute(name = "userInfo") Member member) {
 		String top = "1";
 		String bottom = "4";
 		String shoe = "7";
 		
 		//아바타 조회해오기
-		if(avatarIdx.intValue() != 0) {
-			Avatar avatar = avatarService.selectOneAvatar(avatarIdx.intValue());
-			
+		Avatar avatar = avatarService.selectMaxAvatarByUserId(member.getUserId());
+		
+		if(avatar != null) {
 			model.addAttribute("avatar", avatar);
 			
 			if(avatar.getTop() != 0) {

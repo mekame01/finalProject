@@ -42,6 +42,18 @@
     border-radius: 10px;
 }
 
+.top{
+	z-index: 3;
+}
+
+.bottom{
+	z-index: 2;
+}
+
+.shoes{
+	z-index: 1;
+}
+
 .draggable {
 	cursor: pointer;
 }
@@ -99,19 +111,21 @@
 	<div id="capture">
 		<img id="avatar" alt="image" src="/upload/${sessionScope.userInfo.savePath}${sessionScope.userInfo.renameFileName}">
 		<c:if test="${!empty requestScope.avatar && requestScope.avatar.top ne 0}">
-			<img class="clothes top draggable" style="width: 200px;" data-idx="${requestScope.avatar.top}"
+			<img class="clothes top draggable" data-idx="${requestScope.avatar.top}"
+			style="width: 200px; position: absolute; left: ${requestScope.avatar.topX}px; top: ${requestScope.avatar.topY}px;" 
 			src="/upload/${requestScope.top.savePath}${requestScope.top.renameFileName}" alt="Image">
 		</c:if>
 		<c:if test="${!empty requestScope.avatar && requestScope.avatar.bottom ne 0}">
-			<img class="clothes top draggable" style="width: 200px;" data-idx="${requestScope.avatar.bottom}"
+			<img class="clothes bottom draggable" data-idx="${requestScope.avatar.bottom}"
+			style="width: 200px; position: absolute; left: ${requestScope.avatar.bottomX}px; top: ${requestScope.avatar.bottomY}px;"
 			src="/upload/${requestScope.bottom.savePath}${requestScope.bottom.renameFileName}" alt="Image">
 		</c:if>
 		<c:if test="${!empty requestScope.avatar && requestScope.avatar.shoes ne 0}">
-			<img class="clothes top draggable" style="width: 200px;" data-idx="${requestScope.avatar.shoes}"
+			<img class="clothes shoes draggable" data-idx="${requestScope.avatar.shoes}"
+			style="width: 200px; position: absolute; left: ${requestScope.avatar.shoesX}px; top: ${requestScope.avatar.shoesY}px;"
 			src="/upload/${requestScope.shoe.savePath}${requestScope.shoe.renameFileName}" alt="Image">
 		</c:if>
 	</div>
-	<br>
 	<div class="buttons">
 <button class="btn btn-outline btn-xl js-scroll-trigger" type="button" onclick="save()">저장</button>
 <button class="btn btn-outline btn-xl js-scroll-trigger" type="button" id="delete" onclick="deleteImage()">지우기</button>
@@ -170,14 +184,12 @@ let save = () => {
 			*/
 			if(e.classList.contains(clothesList[i])){
 				
-				//console.dir(e);
-				
 				let temp = e.getBoundingClientRect();
-				
+
 				if(temp.left >= avatarRect.left && temp.right <= avatarRect.right &&
 						temp.top >= avatarRect.top && temp.bottom <= avatarRect.bottom) {
 					cnt[i]++;
-					//console.dir(e);
+					
 					document.querySelector('#capture').appendChild(e);
 					document.querySelector('#'+clothesList[i]).value = e.dataset.idx;
 					document.querySelector('#'+clothesList[i]+'X').value = parseInt(temp.left);

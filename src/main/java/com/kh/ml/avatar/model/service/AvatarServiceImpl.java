@@ -28,7 +28,12 @@ public class AvatarServiceImpl implements AvatarService{
 	public Avatar selectOneAvatar(int avatarIdx) {
 		return avatarRepository.selectOneAvatar(avatarIdx);
 	}
-
+	
+	@Override
+	public Avatar selectMaxAvatarByUserId(String userId) {
+		return avatarRepository.selectMaxAvatarByUserId(userId);
+	}
+	
 	@Transactional
 	@Override
 	public void saveImage(List<MultipartFile> files) {
@@ -52,5 +57,5 @@ public class AvatarServiceImpl implements AvatarService{
 	public void insertAvatar(Avatar avatar) {
 		avatarRepository.insertAvatar(avatar);
 	}
-	
+
 }

@@ -9,6 +9,7 @@ import com.kh.ml.avatar.model.vo.Avatar;
 public interface AvatarService {
 
 	Avatar selectOneAvatar(int avatarIdx);
+	Avatar selectMaxAvatarByUserId(String userId);
 	void saveImage(List<MultipartFile> files);
 	void insertAvatar(Avatar avatar);
 }
